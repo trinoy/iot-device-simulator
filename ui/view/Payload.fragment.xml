@@ -1,0 +1,25 @@
+<core:FragmentDefinition
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core">
+    <Popover
+            id = "payloadPopup"
+            title="Payload"
+            class="sapUiResponsivePadding--header sapUiResponsivePadding--footer"
+            placement="Bottom">
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer/>
+                <Button
+                        id="close"
+                        text="Close"
+                        press="handlePopUpClose"/>
+            </OverflowToolbar>
+        </footer>
+        <content>
+            <VBox>
+                <TextArea growing="true" value="{path:'presetList>prettyPayload'}"></TextArea>
+            </VBox>
+        </content>
+
+    </Popover>
+</core:FragmentDefinition>

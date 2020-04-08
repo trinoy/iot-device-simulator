@@ -1,0 +1,80 @@
+<mvc:View
+controllerName="sap.pregis.sample.app.ui.controller.PresetTabBar"
+xmlns:mvc="sap.ui.core.mvc"
+displayBlock="true"
+xmlns="sap.m"
+xmlns:l="sap.ui.layout"
+xmlns:core="sap.ui.core">
+<ScrollContainer
+        id="presets"
+        horizontal="false"
+        vertical="true"
+        height="100%">
+    <l:BlockLayout>
+        <l:BlockLayoutRow>
+            <l:BlockLayoutCell
+                    width="100%">
+                <VBox>
+
+                    <Toolbar design="Transparent">
+                        <Title text="Presets"/>
+                        <ToolbarSpacer/>
+                        <Button icon="sap-icon://refresh" press="onRefreshPresets"
+                                tooltip="Refresh"/>
+                        <Button
+                                icon="sap-icon://add"
+                                press="onOpenAckDialog"
+                                tooltip="Create a new Preset"
+                                enabled="false"/>
+                        <Button text="Delete All" press="onDeleteAll"
+                                tooltip="Delete All Data"/>
+                    </Toolbar>
+                    <Table id="presetTable"
+                           mode="None"
+                           busyIndicatorDelay="0"
+                           items="{path:'presetList>/items'}">
+                        <columns>
+                            <Column demandPopin="false" popinDisplay="WithoutHeader">
+                                <Text text="Device Alternate Id"/>
+                            </Column>
+                            <Column demandPopin="false" popinDisplay="WithoutHeader">
+                                <Text text="Sensor Alternate Id"/>
+                            </Column>
+                            <Column demandPopin="false" popinDisplay="WithoutHeader">
+                                <Text text="Capability Id"/>
+                            </Column>
+                            <Column demandPopin="false" popinDisplay="WithoutHeader">
+                                <Text text="Media Url"/>
+                            </Column>
+                            <Column demandPopin="false" popinDisplay="WithoutHeader">
+                                <Text text="Payload"/>
+                            </Column>
+                            <Column demandPopin="false" popinDisplay="WithoutHeader">
+                                <Text text="Employee Acknowledgment"/>
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem>
+                                <cells>
+                                    <Text text="bagger1"/>
+                                    <Text text="{presetList>sensorAlternateId}"/>
+                                    <Text text="{presetList>capabilityAlternateId}"/>
+                                    <Text text="{presetList>command/media_url}"/>
+                                    <Link text="more.."
+                                          press="getPayloadEncoded"/>
+                                    <core:Icon
+                                            src="sap-icon://hr-approval"
+                                            color="Negative"
+                                            hoverColor="#0033cc"
+                                            tooltip="Acknowledge"
+                                            press="onOpenAckDialog(${presetList>command})" />
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </VBox>
+            </l:BlockLayoutCell>
+        </l:BlockLayoutRow>
+    </l:BlockLayout>
+</ScrollContainer>
+</mvc:View>

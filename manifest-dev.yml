@@ -1,0 +1,8 @@
+---
+applications:
+  - name: iot-device-simulator
+    path: .
+    buildpack: nodejs_buildpack
+    memory: 1024M
+    env:
+      LANDSCAPE: 'Cloud'

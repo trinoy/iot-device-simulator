@@ -1,0 +1,102 @@
+<mvc:View
+controllerName="sap.pregis.sample.app.ui.controller.Subscription"
+xmlns:mvc="sap.ui.core.mvc"
+displayBlock="true"
+xmlns="sap.m"
+xmlns:l="sap.ui.layout"
+xmlns:core="sap.ui.core">
+<ScrollContainer
+        id="presets"
+        horizontal="false"
+        vertical="true"
+        height="100%">
+    <l:BlockLayout>
+        <l:BlockLayoutRow>
+            <l:BlockLayoutCell
+                    width="100%">
+                <VBox>
+
+                    <Toolbar design="Transparent">
+                        <Title text="Topic- commands/bagger1"/>
+                        <ToolbarSpacer/>
+                        <Button icon="sap-icon://refresh" press="onRefreshCommandList"
+                                tooltip="Refresh"/>
+                    </Toolbar>
+                    <Table id="commandTable"
+                           mode="None"
+                           busyIndicatorDelay="0"
+                           items="{path:'commandList>/items'}">
+                        <columns>
+                            <Column demandPopin="false" popinDisplay="WithoutHeader">
+                                <Text text="Device Alternate Id"/>
+                            </Column>
+                            <Column demandPopin="false" popinDisplay="WithoutHeader">
+                                <Text text="Sensor Alternate Id"/>
+                            </Column>
+                            <Column demandPopin="false" popinDisplay="WithoutHeader">
+                                <Text text="Capability Id"/>
+                            </Column>
+                            <Column demandPopin="false" popinDisplay="WithoutHeader">
+                                <Text text="Command"/>
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem>
+                                <cells>
+                                    <Text text="bagger1"/>
+                                    <Text text="{commandList>sensorAlternateId}"/>
+                                    <Text text="{commandList>capabilityAlternateId}"/>
+                                    <Text text="{path: 'commandList>command', formatter: '.formatCommand'}"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </VBox>
+            </l:BlockLayoutCell>
+        </l:BlockLayoutRow>
+        <l:BlockLayoutRow>
+            <l:BlockLayoutCell
+                    width="100%">
+                <VBox>
+
+                    <Toolbar design="Transparent">
+                        <Title text="Topic- ack/bagger1"/>
+                        <ToolbarSpacer/>
+                        <Button icon="sap-icon://refresh" press="onRefreshAckList"
+                                tooltip="Refresh"/>
+                    </Toolbar>
+                    <Table id="ackTable"
+                           mode="None"
+                           busyIndicatorDelay="0"
+                           items="{path:'ackList>/items'}">
+                        <columns>
+                            <Column demandPopin="false" popinDisplay="WithoutHeader">
+                                <Text text="Device Alternate Id"/>
+                            </Column>
+                            <Column demandPopin="false" popinDisplay="WithoutHeader">
+                                <Text text="Sensor Alternate Id"/>
+                            </Column>
+                            <Column demandPopin="false" popinDisplay="WithoutHeader">
+                                <Text text="Capability Id"/>
+                            </Column>
+                            <Column demandPopin="false" popinDisplay="WithoutHeader">
+                                <Text text="Code"/>
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem>
+                                <cells>
+                                    <Text text="bagger1"/>
+                                    <Text text="{ackList>0/sensorAlternateId}"/>
+                                    <Text text="{ackList>0/capabilityAlternateId}"/>
+                                    <Text text="{ackList>0/code}"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </VBox>
+            </l:BlockLayoutCell>
+        </l:BlockLayoutRow>
+    </l:BlockLayout>
+</ScrollContainer>
+</mvc:View>

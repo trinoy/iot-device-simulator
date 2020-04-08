@@ -1,0 +1,51 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form">
+	<Dialog
+		id="createAckDialog"
+		title="Preset-Employee Acknowledgement"
+		contentWidth = "650px"
+		beforeClose=".beforeCloseAckDialog">
+			<VBox>
+				<f:SimpleForm id="createAckForm"
+					editable="true"
+					title="Data Section"
+					layout="ResponsiveGridLayout"
+					labelSpanXL="4"
+					labelSpanL="3"
+					labelSpanM="3"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="0"
+					emptySpanL="4"
+					emptySpanM="0"
+					emptySpanS="0"
+					columnsXL="2"
+					columnsL="1"
+					columnsM="1"
+					singleContainerFullSize="false" >
+					<f:content>
+						<Label text="Employee Id" required="true" />
+						<Input id="employeeId" />
+						<Label text="Packing Spec Id" required="false" />
+						<Input id="packingSpecId"/>
+						<Label text="Acknowledge"/>
+						<Select id="ackSelect"
+								forceSelection = "true">
+							<core:Item text="Yes" key="Yes"></core:Item>
+							<core:Item text="No" key="No"></core:Item>
+						</Select>
+					</f:content>
+				</f:SimpleForm>
+			</VBox>
+		<buttons>
+			<Button
+				text="Save"
+				press=".onAcknowledgeFormSave"/>
+			<Button
+				text="Cancel"
+				press=".onCancelAckDialog"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

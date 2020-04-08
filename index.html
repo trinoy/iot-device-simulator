@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pregis-Device-Demo</title>
+  <link rel="stylesheet" type="text/css" href="ui/css/style.css">
+  <script
+          id="sap-ui-bootstrap"
+          src="https://sapui5.hana.ondemand.com/1.75.0/resources/sap-ui-core.js"
+          data-sap-ui-theme="sap_belize"
+          data-sap-ui-libs="sap.m"
+          data-sap-ui-resourceroots='{
+			"sap.pregis.sample.app.ui": "./ui"
+		}'
+          data-sap-ui-compatVersion="edge"
+          data-sap-ui-async="true">
+  </script>
+  <script>
+    sap.ui.getCore().attachInit(function () {
+      new sap.ui.core.ComponentContainer({
+        name : "sap.pregis.sample.app.ui"
+      }).placeAt("content");
+
+    });
+  </script>
+</head>
+<body class="sapUiBody" id="content">
+<div id="busyIndicator"><img src="ui/images/spinner.gif"/></div>
+<!--<div data-sap-ui-component data-name="sap.iot.dme.sample.app.ui" data-id="container" data-settings='{"id" : "sampleapp"}'></div>-->
+</body>
+</html>

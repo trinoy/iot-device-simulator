@@ -1,0 +1,4 @@
+<mvc:View
+        controllerName="sap.pregis.sample.app.ui.controller.Dummy"
+        xmlns:mvc="sap.ui.core.mvc">
+</mvc:View>

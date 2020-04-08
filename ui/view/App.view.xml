@@ -1,0 +1,66 @@
+<mvc:View
+        controllerName="sap.pregis.sample.app.ui.controller.Main"
+        xmlns:mvc="sap.ui.core.mvc"
+        displayBlock="true"
+        xmlns="sap.m"
+        xmlns:tnt="sap.tnt">
+    <App class="" id="app">
+    <pages>
+        <Page showHeader="false">
+            <content>
+              <!--  <mvc:XMLView viewName="sap.iot.dme.sample.app.ui.view.Main"/>-->
+
+                <tnt:ToolPage id="toolPage">
+                    <!-- application header -->
+                    <tnt:header>
+                        <tnt:ToolHeader>
+                            <!-- button to expand/collapse side navigation -->
+                            <Button
+                                    id="sideNavigationToggleButton"
+                                    icon="sap-icon://menu2"
+                                    type="Transparent"
+                                    press=".onSideNavButtonPress"
+                                    tooltip="Small Size Navigation">
+                                <layoutData>
+                                    <ToolbarLayoutData priority="NeverOverflow"/>
+                                </layoutData>
+                            </Button>
+                            <ToolbarSpacer width="40%"/>
+                            <!-- application title-->
+                            <Title level="H1"
+                                   text="IoT Device Simulator-bagger1"/>
+                            <ToolbarSpacer/>
+                        </tnt:ToolHeader>
+                    </tnt:header>
+
+                    <!-- navigation content to switch between tabs (admin, work instructions, production order etc..) -->
+                    <tnt:sideContent>
+                        <tnt:SideNavigation id="sideNavigation" selectedKey="materials"
+                                            itemSelect=".onSideNavigationItemSelect">
+                            <tnt:item>
+                                <tnt:NavigationList>
+                                    <tnt:NavigationListItem text="Presets" icon="sap-icon://key-user-settings" id="navItemPreset"
+                                                            key="presets"/>
+                                    <tnt:NavigationListItem text="Subscriptions" icon="sap-icon://key-user-settings" id="navItemSub"
+                                                            key="subscriptions"/>
+                                </tnt:NavigationList>
+                            </tnt:item>
+                            <tnt:fixedItem>
+                            </tnt:fixedItem>
+                        </tnt:SideNavigation>
+                    </tnt:sideContent>
+
+                    <tnt:mainContents id="tntMainContent">
+                        <!-- nav container to navigate between sections -->
+                        <NavContainer id="pageContainer" defaultTransitionName="slide">
+                            <pages>
+                                <mvc:XMLView viewName="sap.pregis.sample.app.ui.view.Dummy"/>
+                            </pages>
+                        </NavContainer>
+                    </tnt:mainContents>
+                </tnt:ToolPage>
+            </content>
+        </Page>
+    </pages>
+</App>
+</mvc:View>
